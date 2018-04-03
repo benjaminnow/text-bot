@@ -115,12 +115,18 @@ def reply(command, person):
     split_command = command.split(":")
     if person == config.ADMIN:
         if split_command[0] == "$tasks":
+            if len(split_command) == 1:
+                return "\n need to specify person"
             return tasks(split_command[1])
         elif split_command[0] == "$add":
+            if len(split_command) == 1:
+                return "\n need to specify person"
             return add_task(split_command[1], split_command[2], split_command[3])
         elif split_command[0] == "$tips":
             return tips()
         elif split_command[0] == "$remove":
+            if len(split_command) == 1:
+                return "\n need to specify person"
             return remove_task(split_command[1], split_command[2])
         elif split_command[0] == "$commands":
             return commands()
@@ -128,6 +134,8 @@ def reply(command, person):
             return "\nincorrect command, type $commands to view all commands"
     else:
         if split_command[0] == "$tasks":
+            if len(split_command) == 1:
+                return "\n need to specify person"
             return tasks(split_command[1])
         elif split_command[0] == "$tips":
             return tips()
